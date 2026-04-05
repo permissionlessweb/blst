@@ -1,6 +1,6 @@
 [package]
 name = "nam-blst"
-version = "0.3.15-nam.0"
+version = "0.3.17-nam.0"
 authors = ["sean-sn <sean@supranational.net>"]
 edition = "2018"
 license = "Apache-2.0"
@@ -38,6 +38,8 @@ force-adx = []
 no-threads = []
 # Add support for serializing SecretKey, not suitable for production.
 serde-secret = ["serde"]
+# Enable arbitrary trait implementations
+arbitrary = ["dep:arbitrary"]
 
 [build-dependencies]
 cc = "1.0"
@@ -47,6 +49,7 @@ glob = "0.3"
 [dependencies]
 zeroize = { version = "^1.1", features = ["zeroize_derive"] }
 serde = { version = "1.0.152", optional = true }
+arbitrary = { version = "1", optional = true }
 
 [target.'cfg(not(any(target_arch="wasm32", target_os="none", target_os="unknown", target_os="uefi")))'.dependencies]
 threadpool = "^1.8.1"
